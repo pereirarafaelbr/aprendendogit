@@ -1,0 +1,389 @@
+
+
+1- Testes de Performance:
+	- Compartilhar documentação com a Linx - OK
+	- Preparar o ambiente K6 Linx
+	- Executar testes com AKS criado pelo time do Fiscal Flow
+	- Analisar em conjunto API do e-Milenium (Rafael e Riberto)
+
+2- SVM - Configurar o ambiente do PDV One para utilizar SVM
+ 
+4- Revisar Arquitetura PDV One (Desenho)
+ 
+5- Criar desenho da arquitetura do AA com Delphi
+ 
+6- Acompanhar SAT Android v1
+ 
+7- Refatorar microserviço API (Riberto)
+ 
+8- Refatorar microserviço Order (Riberto)
+ 
+9- Refatorar microserviço Tax (Riberto)
+ 
+10- Estruturar ajustes dos smell codes (Sonar)
+ 
+11- Criar logs com as chamadas das API's com os logs da requisição (Com as etapas)
+
+12- Testes automátizados 320hs
+
+13- Testes de Performance 40hs
+
+3- AA Analisar substituição do PM2 pelo VSSM - FOOD-27309
+
+
+
+Arquiteto(a) de Aplicações (Hibrido/SP)
+Experiência em fluxos CI/CD, utilizando ferramentas open source;
+Experiência em soluções e desenvolvimento baseados em Customer Experience e Apps Mobile;
+Experiência em frameworks de desenvolvimento usando Serverles, Microservices ou Bigdata conceituando SME, 
+GreenCode e DDD. (exemplo: Spring-boot, NodeJS, Angular JS, ReactJS, Bootstrap , etc.);
+Experiência em bases de dados (NoSQL, SQL, Columnar, Key-value, SEO);
+Experiência em linguagens de programação (HTML5, JavaScript, CSS, Java EE, NodeJS, Python, Angular, React);
+
+Experiência de Enterprise Architect;
+Experiência em Gateways de API;
+Experiência em Desenho de Integrações (SOA, Microsserviços, Eventos e Service Mesh);
+Experiência em construção de Documentos de Referência Técnica;
+Experiência em desenho de Soluções (C4Model);
+Experiência em desenho de arquitetura de Soluções Híbridas e Multi Plataformas.
+
+5 a 7 anos de experiência no projeto e implementação de aplicativos de software em Java.
+Experiência em desenvolvimento de software para-Android é essencial.
+Conhecimento de serviços web escaláveis voltados para a internet e infraestruturas é desejado.
+Habilidade para comunicar e colaborar de forma eficiente.
+Ter conhecimento em banco de dados relacionais (Oracle, MySQL, PostgreSql); Ter conhecimento em banco de dados não relacionais (MongoDB, DynamoDB, Redis);
+Ter experiência no desenvolvimento de micro serviços;
+Práticas de uma cultura DevOps, atuando na automação de infraestrutura - CI, CD e IaC, contribuindo com a agilidade de entrega do software em produção;
+
+
+
+User Story 27513: [UC500] Add OPC UA Server to list of protocols - Database connection classes created
+User Story 27653: [UC500] Add OPC UA Server to list of protocols - Add visual Nodes OPC UA Server
+
+
+
+
+https://pdv-dev.degustonecloud.com.br/lx-degust-api-integracao-prd.azurewebsites.net/api/caixa/dados-fechamento
+
+https://pdv-dev.degustonecloud.com.br/lx-degust-api-integracao-prd.azurewebsites.net/api/usuario/autenticar
+
+
+
+	
+
+	
+	raphael.palhano@mazzafc.tech
+	
+	
+	
+	
+
+
+
+
+    
+
+
+
+
+
+	
+	
+	
+Monitoria: colocar o time do PDVOne no canal de alertas do xCenter (DevOps)
+ - Enviar e-mail das pessoas que serão notificadas (Rafael)
+   Willian / Riberto / Thailas / Sergião / Kaue / Bernard / Rafael 
+
+Logs - Grafana Loki (DevOps)
+ - Previsão 02/02
+ 
+MongoDB (P&D)
+ - Dev -> Ok
+ - Hml -> Riberto 24/01
+ - Prd -> 29/01
+
+Performance (DevOps E P&D)
+ - Load Balancer - 26/01 (Performance e Contingencia)
+ 
+Disaster recover (DevOps)
+ - VM Banco de dados MongoDB
+    - Criar politica de Bkp para o banco de dados (DevOps)
+    - DR da VM -> Ok
+ - Cluster AKS -> (DevOps)
+ 
+- Pipelines - ArgoCD (DevOps)
+
+- Ambientes One Dev, Teste, Treina, PRD (Custos Cloud R$) - (Douglas) R$ 9.000,00 -> R$ 13.000,00
+
+- Revisar todos os alarmes de Monitoramento servidores Linx – NOC (DevOps)
+
+- Replicação de dados para os Clientes (Rafael / Wesley / Riberto / Tominaga)
+
+- Mapeamento dos servidores (Rafael / Luiz Felipe / Riberto)
+
+
+
+ Bom dia, segue o posicionamento da reunião realizada hoje 26/01:
+ 
+ Participantes:
+ 	- Rodrigo Rafael Artus
+ 	- Thiago Nunes Monteiro
+ 	- José Riberto Filho
+ 	- Rafael Pereira
+ 	
+ # Piloto do SAT Android realizado na segunda-feira 22/01 conforme planejado:
+ 
+ 	Pontos de atenção:
+ 		- CF'e emitidos não subiram para o Server, ficaram retidos no Client (Roger está atuando) será liberado uma nova versão na
+ 		  próxima semana.
+ 		- O serviço do Client está caindo devido ao alto consumo de memória da máquina (Avaliar a possibilidade de fazer 
+ 	      o Downgrade da versão do Linux v20 para v18). (Riberto está atuando) 
+ 		- Nenhum problema relatado pelo cliente até o momento. 
+ 		- Testes de emissão em massa em aguardo dos passos mencionado anteriormente
+ 	
+ # Teste de performance:
+ 	
+ 	- Client Fiscal flow: Resultado do teste de performance apresentado na ultima sexta-feira
+ 	- Refatoração dos Microserviços Tax e Order em andamento (Riberto)
+ 	- Arquitetura com Load Balance e duas VM's concluída e entregue pelo time de DevOps
+ 	- Após o refatoramento dos Microserviços será realizado novo teste de Performance (End-to-End)
+ 	
+ 	
+ As adequações de telas foram feitas de acordo com o desenho do Figma e conforme as funcionalidades
+ existentes no PDV One.
+ 
+ A funcionalidade de cancelar conta não existe no código do PDV One, portanto foi feito o botão de cancelar conta, 
+ falta apenas apenas inserir a função no botão caso ela exista. 
+ 	
+ A funcionalidade de transferir conta não existe no código do PDV One, portanto foi feito o botão de transferir, 
+ falta apenas apenas inserir a função no botão caso ela exista. 
+ 
+ No resumo do pedido não está existe na branch de Dev o código para mostrar os valores de Taxa, Desconto e Pago.
+ 
+ Após a ultima conversa que tivemos com o Flávio no dia 17/01 foi add uma nova Navegação na tela de venda mesa 
+ com posição, a mesma não foi implementada. No entanto o modal está 100% operacional.
+ 
+  
+Escalabilidade 
+Monitoramento
+DR 	
+Performance
+SVC PDV Windows e Android 	
+ 	
+ 	
+ssh -i ssh-fiscalflow-dev001.pem dgtadmin@20.14.196.103
+ 	
+ 	
+dev001- 20.14.196.103
+dev002 - 20.246.116.54
+sefaz-  20.230.9.50
+ambas user dgtadmin 	
+ 	
+ 	
+1- Testes de Performance:
+	- Compartilhar documentação com a Linx
+	- Analisar em conjunto API do e-Milenium (Rafael e Riberto)
+	- Executar testes com AKS criado pelo time do Fiscal Flow
+    - https://jira.linx.com.br/browse/FOOD-27864 - Doing
+
+2- SVM - Configurar o ambiente do PDV One para utilizar SVM
+	- https://jira.linx.com.br/browse/FOOD-27865 - Backlog
+
+3- Analisar substituição do PM2 pelo VSSM
+	- https://jira.linx.com.br/browse/FOOD-27866 - Backlog
+
+4- Revisar Arquitetura PDV One (Desenho)
+	- https://jira.linx.com.br/browse/FOOD-27867 - In Dev
+
+5- Criar desenho da arquitetura do AA com Delphi
+	- https://jira.linx.com.br/browse/FOOD-27868
+
+6- Acompanhar SAT Android v1
+	- https://jira.linx.com.br/browse/FOOD-27869 - Done
+
+7- Refatorar microserviço API
+	- https://jira.linx.com.br/browse/FOOD-27870
+
+8- Refatorar microserviço Order ( Spritn 12)
+	- https://jira.linx.com.br/browse/FOOD-27280 - In Dev
+
+9- Refatorar microserviço Tax ( Spritn 12) - In Dev
+	- https://jira.linx.com.br/browse/FOOD-27280
+
+10- Revisar regras do Sonar
+	- https://jira.linx.com.br/browse/FOOD-27871 - Backlog
+
+11- Criar logs com as chamadas das API's com os logs da requisição (Com as etapas)
+	- https://jira.linx.com.br/browse/FOOD-27872 - Backlog
+ 
+12- Testes automátizados 360hs (Novo bolsão de horas)
+	- https://jira.linx.com.br/browse/FOOD-27873 - Backlog
+ 
+13 - Monitoria: colocar o time do PDVOne no canal de alertas do xCenter (DevOps)
+   
+14 - Verificar com o Wesley a relacao dos bancos ja minitorados (Rafael) - OK
+	LNXDGTDB01
+	LNXDGTDB02
+	LNXDGTDB03
+	LNXDGTDB04
+	LNXDGTDB05
+	Microsoft Azure
+ 
+15 - Logs - Grafana Loki (DevOps)
+	- Já em PRD - Ok
+	- Melhorias em andamento 09/02
+
+16 - MongoDB (P&D)
+	- Dev -> Ok
+	- Hml -> Ok
+	- Prod Test -> 12/02
+	- Prd -> 12/02
+ 
+17 - Performance (DevOps E P&D)
+	 - Load Balancer - 14/02 (Performance e Contingencia)
+
+
+18 - Disaster recover (DevOps)
+	- VM Banco de dados MongoDB
+    - Criar politica de Bkp para o banco de dados (DevOps) - Sera criado um blob storage para o armazenamento dos dumps - 16-02
+    - DR da VM -> Ok
+	- Cluster AKS -> (DevOps) - Backlog
+	- Pipelines - ArgoCD (DevOps) - Backlog
+ 
+ 
+19 - Revisar todos os alarmes de Monitoramento servidores Linx – NOC (DevOps)
+   - Falta monitoria da maquina do MongoDB - Ate Sexta (Novo)
+ 
+ 
+20 - Mapeamento dos servidores (Rafael / Luiz Felipe / Riberto + Time Dev) 	
+
+21 - SAT Android Rollout
+
+22 - Testes automatizados AA
+
+23 - SmartPOS Lio
+
+24 - Ambientes One Dev, Teste, Treina, PRD (Custos Cloud R$) - (Douglas) R$ 9.000,00 -> R$ 13.000,00 - OK
+
+25 - Replicação de dados para os Clientes Linx API - OK
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ https://jira.linx.com.br/browse/FOOD-27853 (Verificar com Tominaga)
+ 
+ 
+ 
+ 
+ Manhã reuniões (daily / alinhamento)
+ Tarde - Alinhamento demandas daniel (Matheus e Pedro)
+       - Apoio ao Kevin ambiente do AA VM
+       - Alinhamento com o Riberto
+       - AA Organização do Produto
+       - Conversa com o Riba e Cassiano Mazza
+       
+       
+       
+       
+       
+ 
+ 
+ 
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
